@@ -1,0 +1,23 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+
+# JWT Configuration with a fixed test key
+app:
+  jwtSecret: "YourSecretKeyHereMakeItLongAndRandomForSecurityInProductionEnvironment"
+  jwtExpirationInMs: 3600000  # 1 hour
+
+# Disable OpenAPI during tests
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    enabled: false
+
+# Test-specific logging
+logging:
+  level:
+    org.springframework: INFO
+    org.springframework.data.mongodb: DEBUG
+    com.twitterclone: DEBUG
+    org.testcontainers: INFO

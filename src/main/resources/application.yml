@@ -1,0 +1,58 @@
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: twitter-clone
+      auto-index-creation: true
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+# Springdoc OpenAPI Configuration
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+    tags-sorter: alpha
+    doc-expansion: none
+    display-request-duration: true
+    show-extensions: true
+    deep-linking: true
+    default-model-expand-depth: 3
+    default-models-expand-depth: 3
+    
+  # Improve OpenAPI spec quality
+  writer-with-default-pretty-printer: true
+  default-produces-media-type: application/json
+  default-consumes-media-type: application/json
+
+server:
+  port: 8080
+  error:
+    include-message: always
+    include-binding-errors: always
+    include-stacktrace: never
+    include-exception: false
+
+# JWT Configuration
+app:
+  jwtSecret: "YourSecretKeyHereMakeItLongAndRandomForSecurityInProductionEnvironment"
+  jwtExpirationInMs: 604800000  # 7 days
+
+# Logging configuration
+logging:
+  level:
+    root: INFO
+    org.springframework.data.mongodb.core.MongoTemplate: DEBUG
+    com.twitterclone: DEBUG
+    org.springframework.web: INFO
+    org.springframework.security: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/twitter-clone-api.log
