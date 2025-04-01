@@ -27,7 +27,7 @@ class LikeService {
             return false
         }
 
-        Like like = new Like(postId, userId)
+        Like like = new Like(postId: postId, userId: userId)
         likeRepository.save(like)
         return true
     }

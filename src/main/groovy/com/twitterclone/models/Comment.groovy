@@ -30,14 +30,4 @@ class Comment {
     @Schema(description = "Date when the comment was created", example = "2023-01-15T15:30:00")
     LocalDateTime creationDate = LocalDateTime.now()
 
-    Comment(String postId, String userId, String content) {
-        this.postId = postId
-        this.userId = userId
-        this.content = content
-    }
-
-    /**
-     * Default no-args constructor required by MongoDB
-     */
-    Comment() {}
 }

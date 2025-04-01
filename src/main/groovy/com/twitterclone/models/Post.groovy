@@ -29,16 +29,6 @@ class Post {
     @Schema(description = "Date when the post was last edited", example = "2023-01-16T09:45:00")
     LocalDateTime lastEditDate = LocalDateTime.now()
 
-    Post(String userId, String content) {
-        this.userId = userId
-        this.content = content
-    }
-
-    /**
-     * Default no-args constructor required by MongoDB
-     */
-    Post() {}
-
     void updateContent(String newContent) {
         this.content = newContent
         this.lastEditDate = LocalDateTime.now()

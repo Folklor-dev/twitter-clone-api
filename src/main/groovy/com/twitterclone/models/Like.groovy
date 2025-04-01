@@ -31,13 +31,4 @@ class Like {
 
     LocalDateTime createdAt = LocalDateTime.now()
 
-    Like(String postId, String userId) {
-        this.postId = postId
-        this.userId = userId
-    }
-
-    /**
-     * Default no-args constructor required by MongoDB
-     */
-    Like() {}
 }

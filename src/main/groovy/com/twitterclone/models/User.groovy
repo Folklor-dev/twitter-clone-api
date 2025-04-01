@@ -39,15 +39,4 @@ class User {
     @Schema(description = "Date when user registered", example = "2023-01-01T10:00:00")
     LocalDateTime registrationDate = LocalDateTime.now()
 
-    User(String username, String email, String password, String displayName) {
-        this.username = username
-        this.email = email
-        this.password = password
-        this.displayName = displayName
-    }
-
-    /**
-     * Default no-args constructor required by MongoDB
-     */
-    User() {}
 }
